@@ -20,6 +20,14 @@ You can use following definitions in your equation:
 - Encoder's counts per revolution: $CPR$
 
 > Write down linear motion equation below. 👇
+## linear motion encoder equation
+ d      = desired travel distance (m)
+ r      = wheel radius (m)
+ i      = gear ratio (motor revs / wheel revs)
+ CPR    = encoder counts per motor revolution
+ C      = target encoder counts for that distance
+
+C = (d * i * CPR) / (2 * pi * r)
 
 > [!TIP]
 > If other quantities than the listed ones are needed.
@@ -39,6 +47,26 @@ You can use following definitions in your equation:
 - Encoder's counts per revolution: $CPR$
 
 > Write down angular motion equation(s) below. 👇
+## angular motion encoder equations (spin in place)
+
+ variables:
+ theta = desired spin angle (radians)
+ L     = wheel axle length (m)
+ r     = wheel radius (m)
+ i     = gear ratio (motor revs / wheel revs)
+ CPR   = counts per motor revolution
+ Cl    = left motor target encoder counts
+ Cr    = right motor target encoder counts
+
+C_spin = (L * theta * i * CPR) / (4 * pi * r)
+
+### CCW spin:
+Cr = +C_spin   # right wheel forward
+Cl = -C_spin   # left wheel backward
+
+### CW spin:
+Cr = -C_spin   # right wheel backward
+Cl = +C_spin   # left wheel forward
 
 > [!TIP]
 > You may find the calculation of arc length as illustrated below helpful.
