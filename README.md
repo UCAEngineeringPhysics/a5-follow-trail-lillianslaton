@@ -76,7 +76,7 @@ Cl = +C_spin   # left wheel forward
 ### 2. (15%) Wiring
 Please upload your wiring diagram below to illustrate how the motors are controlled and monitored. 👇
 
-![wiring](images/wiring_diagram.jpg)
+![wiring](images/a5diagram.png)
 
 ### 3. (70%) Coding
 
