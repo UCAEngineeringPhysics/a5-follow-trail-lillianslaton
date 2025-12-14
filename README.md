@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/1_wnOXgh)
 # Trail Follower
 
 Implement a more precised distance control to follow the trapezoidal trail in the lab.
@@ -19,6 +20,14 @@ You can use following definitions in your equation:
 - Encoder's counts per revolution: $CPR$
 
 > Write down linear motion equation below. 👇
+## linear motion encoder equation
+ d      = desired travel distance (m)
+ r      = wheel radius (m)
+ i      = gear ratio (motor revs / wheel revs)
+ CPR    = encoder counts per motor revolution
+ C      = target encoder counts for that distance
+
+C = (d * i * CPR) / (2 * pi * r)
 
 > [!TIP]
 > If other quantities than the listed ones are needed.
@@ -38,6 +47,26 @@ You can use following definitions in your equation:
 - Encoder's counts per revolution: $CPR$
 
 > Write down angular motion equation(s) below. 👇
+## angular motion encoder equations (spin in place)
+
+ variables:
+ theta = desired spin angle (radians)
+ L     = wheel axle length (m)
+ r     = wheel radius (m)
+ i     = gear ratio (motor revs / wheel revs)
+ CPR   = counts per motor revolution
+ Cl    = left motor target encoder counts
+ Cr    = right motor target encoder counts
+
+C_spin = (L * theta * i * CPR) / (4 * pi * r)
+
+### CCW spin:
+Cr = +C_spin   # right wheel forward
+Cl = -C_spin   # left wheel backward
+
+### CW spin:
+Cr = -C_spin   # right wheel backward
+Cl = +C_spin   # left wheel forward
 
 > [!TIP]
 > You may find the calculation of arc length as illustrated below helpful.
@@ -47,7 +76,7 @@ You can use following definitions in your equation:
 ### 2. (15%) Wiring
 Please upload your wiring diagram below to illustrate how the motors are controlled and monitored. 👇
 
-![wiring](images/wiring_diagram.jpg)
+![wiring](images/a5diagram.png)
 
 ### 3. (70%) Coding
 
